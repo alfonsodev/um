@@ -1,5 +1,4 @@
 language: go
-
 go:
   - 1.4
   - tip
@@ -7,6 +6,7 @@ env:
   global:
     - PGUSER=postgres
     - PQGOSSLTESTS=1
+    - USRMNG_DBNAME=usermanager
   matrix:
     - PGVERSION=9.3
 script:

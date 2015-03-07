@@ -4,6 +4,7 @@ import (
 	"database/sql"
 	"fmt"
 	_ "github.com/lib/pq"
+	"os"
 )
 
 var db *sql.DB
@@ -19,7 +20,8 @@ type User struct {
 
 func init() {
 	var err error
-	db, err = sql.Open("postgres", "dbname=foo sslmode=disable")
+	connstring := "dbname= " + os.Getenv("USRMNG_DBNAME") + " sslmode=disable"
+	db, err = sql.Open("postgres", connstring)
 	PanicIf(err)
 
 	fmt.Printf("[INIT] usermanager\n")
