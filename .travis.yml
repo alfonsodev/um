@@ -25,6 +25,8 @@ script:
  - go test -v ./...
 
 before_script:
+ - go get github.com/tools/godep
+ - godep restore
  - psql -c 'create database usermanager' -U postgres
  - psql usermanager -f usermanager.sql -U postgres
  - psql usermanager -f fixtures.sql -U postgres
