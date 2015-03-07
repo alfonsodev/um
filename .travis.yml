@@ -16,5 +16,5 @@ script:
 before_script:
  - go get github.com/tools/godep
  - psql -c 'create database usermanager' -U postgres
- - psql usermanager -f ${TRAVIS_BUILD_DIR}/usermanager.sql -U postgres
- - psql usermanager -f ${TRAVIS_BUILD_DIR}/fixtures.sql -U postgres
+ - psql usermanager -f ${TRAVIS\_BUILD\_DIR}/usermanager.sql -U postgres
+ - psql usermanager -f ${TRAVIS\_BUILD\_DIR}/fixtures.sql -U postgres
