@@ -20,7 +20,7 @@ type User struct {
 
 func init() {
 	var err error
-	connstring := "dbname= " + os.Getenv("USRMNG_DBNAME") + " sslmode=disable"
+	connstring := "user=" + os.Getenv("USRMNG_USER") + " dbname= " + os.Getenv("USRMNG_DBNAME") + " sslmode=disable"
 	db, err = sql.Open("postgres", connstring)
 	PanicIf(err)
 

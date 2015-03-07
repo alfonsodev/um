@@ -1,5 +1,6 @@
 # usermanager
-[![Build Status](https://travis-ci.org/alfonsodev/usermanager.svg?branch=master)](https://travis-ci.org/alfonsodev/usermanager)
+[![Build Status](https://travis-ci.org/alfonsodev/usermanager.svg?branch=master)](https://travis-ci.org/alfonsodev/usermanager)  
+
 It's a simple user managment system inspeired on Github's Users and Organizations apis.
 *Disclaimer* This is *WIP* help is wanted, and pull request are welcome! 
 
@@ -17,7 +18,8 @@ It's a simple user managment system inspeired on Github's Users and Organization
 ## Requirements
 - Postgresql
 - go
-
+## Configuration
+Database name is defined in a env variable USRMNG_DBNAME
 ## Api usage
 
 ## Library usage
