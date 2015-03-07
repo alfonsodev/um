@@ -25,5 +25,6 @@ script:
  - go test -v ./...
 
 before_script:
- - make structure
- - make fixtures 
+ - psql -c 'create database usermanager' -U postgres
+ - psql usermanager -f usermanager.sql -U postgres
+ - psql usermamanger -f fixtures.sql -U postgres
