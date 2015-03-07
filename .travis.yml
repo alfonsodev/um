@@ -9,7 +9,7 @@ env:
     - USRMNG_DBNAME=usermanager
     - USRMNG_USER=postgres
   matrix:
-    - PGVERSION=9.3
+    - PGVERSION=9.4
 script:
  - psql usermanager -f ./usermanager.sql -U postgres
  - psql usermanager -f ./fixtures.sql -U postgres
