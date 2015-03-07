@@ -1,9 +1,9 @@
 -- db: usermanager
 -- mantainer: Alfonso Fernandez <alfonso@isla.io>
 -- Simple user managment database inspired on github user, team organization structure.
-DROP SCHEMA myschema CASCADE;
+DROP SCHEMA IF EXISTS usermanager CASCADE;
 
-CREATE SCHEMA IF NOT EXISTS usermanager;
+CREATE SCHEMA usermanager;
 
 DROP TABLE IF EXISTS usermanager.users_orgs;
 DROP TABLE IF EXISTS usermanager.users;
