@@ -1,5 +1,5 @@
 # usermanager
-[![Build Status](https://travis-ci.org/alfonsodev/usermanager.svg?branch=master)](https://travis-ci.org/alfonsodev/usermanager)  
+[![Build Status](https://travis-ci.org/alfonsodev/usermanager.svg?branch=master)](https://travis-ci.org/alfonsodev/usermanager)  [![Coverage Status](https://coveralls.io/repos/alfonsodev/usermanager/badge.svg?branch=master)](https://coveralls.io/r/alfonsodev/usermanager?branch=master)  
 
 It's a simple user managment system inspeired on Github's Users and Organizations apis.
 *Disclaimer* This is *WIP* help is wanted, and pull request are welcome! 
