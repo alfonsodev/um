@@ -16,8 +16,11 @@ addons:
 script:
  - psql usermanager -f ./usermanager.sql -U postgres
  - psql usermanager -f ./fixtures.sql -U postgres
- - go test -v ./...
+ - $HOME/gopath/bin/goveralls -service=travis-ci
 
 before_script:
+ - go get github.com/axw/gocov/gocov
+ - go get github.com/mattn/goveralls
+ - if ! go get code.google.com/p/go.tools/cmd/cover; then go get golang.org/x/tools/cmd/cover; fi
  - go get github.com/tools/godep
  - psql -c 'create database usermanager' -U postgres
