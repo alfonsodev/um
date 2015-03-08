@@ -14,11 +14,10 @@ addons:
   postgresql: "9.4"
 
 script:
+ - psql usermanager -f ./usermanager.sql -U postgres
+ - psql usermanager -f ./fixtures.sql -U postgres
  - go test -v ./...
 
 before_script:
  - go get github.com/tools/godep
  - psql -c 'create database usermanager' -U postgres
- - psql usermanager -c 'create schema usermanager' -U postgres
- - psql usermanager -f usermanager.sql -U postgres
- - psql usermanager -f fixtures.sql -U postgres
