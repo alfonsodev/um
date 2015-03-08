@@ -9,7 +9,10 @@ env:
     - USRMNG_DBNAME=usermanager
     - USRMNG_USER=postgres
   matrix:
-    - PGVERSION=9.3
+    - PGVERSION=9.4
+addons:
+  postgresql: "9.4"
+
 script:
  - go test -v ./...
 
