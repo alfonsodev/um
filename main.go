@@ -1,50 +1,56 @@
-package usermanager
+/*
+   This file is part of Usermanager.
+
+   Usermanager is free software: you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation, either version 3 of the License, or
+   (at your option) any later version.
+
+   Usermanager is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+
+   You should have received a copy of the GNU General Public License
+   along with Foobar.  If not, see <http://www.gnu.org/licenses/>.
+*/
+package main
 
 import (
-	"database/sql"
 	"fmt"
-	_ "github.com/lib/pq"
-	"os"
+	um "github.com/alfonsodev/usermanager/usermanager"
+	"github.com/spf13/cobra"
 )
 
-var db *sql.DB
-
-type User struct {
-	id       int64
-	username []byte
-	fullname []byte
-	email    []byte
-	location []byte
-	person   []byte
+func addUser() {
+	fmt.Println("user can't be added yet")
 }
 
-func init() {
-	var err error
-	connstring := "user=" + os.Getenv("USRMNG_USER") + " dbname= " + os.Getenv("USRMNG_DBNAME") + " sslmode=disable"
-	db, err = sql.Open("postgres", connstring)
-	PanicIf(err)
-
-	fmt.Printf("[INIT] usermanager\n")
+func listUsers() {
+	um.List()
 }
 
-func PanicIf(err error) {
-	if err != nil {
-		panic(err)
+func main() {
+
+	var versionCmd = &cobra.Command{
+		Use:   "version",
+		Short: "Display version",
+		Long:  `Display version of this software`,
+		Run: func(cmd *cobra.Command, args []string) {
+			fmt.Println("Usermanager -- HEAD")
+		},
 	}
-}
-
-func List() {
-	rows, err := db.Query("SELECT * FROM usermanager.users")
-
-	PanicIf(err)
-	defer rows.Close()
-
-	var user User
-	for rows.Next() {
-		err := rows.Scan(&user.id, &user.username, &user.fullname, &user.email, &user.location, &user.person)
-		//err := rows.Scan(&user.username)
-		fmt.Printf("\nUsername: %v: %s", user.id, string(user.username))
-		PanicIf(err)
+	var listCmd = &cobra.Command{
+		Use:   "users",
+		Short: "list users",
+		Long:  `list all users in the system`,
+		Run: func(cmd *cobra.Command, args []string) {
+			listUsers()
+		},
 	}
+
+	var rootCmd = &cobra.Command{Use: "app"}
+	rootCmd.AddCommand(versionCmd, listCmd)
+	rootCmd.Execute()
 
 }
