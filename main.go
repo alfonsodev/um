@@ -19,7 +19,7 @@ package main
 import (
 	"fmt"
 
-	um "github.com/alfonsodev/um/users"
+	um "github.com/alfonsodev/um/usermanager"
 	"github.com/spf13/cobra"
 )
 

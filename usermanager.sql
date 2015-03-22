@@ -17,6 +17,8 @@ CREATE TABLE usermanager.users (
   fullname varchar(255),
   email varchar(255),
   location varchar(255),
+  googleid varchar(255),
+  googletoken varchar(255),
   person json
 );
 

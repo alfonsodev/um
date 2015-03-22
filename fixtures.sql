@@ -16,5 +16,10 @@ VALUES ('kevinsawicki', 'Kevin Sawicki', 'Redwood City, CA')
  ,('hadley', 'Hadley Wickham', 'R Houston, TX')
  ,('weierophinney', 'Matthew Weier', 'Sioux Falls, SD, USA') 
  ,('jdalton', 'John-David Dalton', 'http://twitter.com/jdalton')
- ,('feross', 'Feross Aboukhadijeh', 'Mountain View, CA ')
- ,('springmeyer', 'Dane Springmeyer', 'Winthrop, WA');
+ ,('feross', 'Feross Aboukhadijeh', 'Mountain View, CA ');
+
+ INSERT INTO users (username , fullname, email, location, googleid, googletoken, person)
+VALUES ('springmeyer', 'Dane Springmeyer', 'Winthrop, WA','springmeyer', 'Dane Springmeyer', 'Winthrop, WA', '1');
+
+
+  
